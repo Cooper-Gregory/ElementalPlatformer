@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 2
   element: Water
+  colour: {r: 0, g: 0.31764707, b: 0.7843138, a: 1}

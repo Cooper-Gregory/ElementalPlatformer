@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 0
   element: Fire
+  colour: {r: 0.7843138, g: 0.015686275, b: 0, a: 1}

@@ -7,4 +7,5 @@ public class StateInfo : ScriptableObject
 {
     public int iD;
     public string element;
+    public Color colour;
 }

@@ -155,7 +155,7 @@ PlatformEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RotationalOffset: 0
-  m_UseOneWay: 1
+  m_UseOneWay: 0
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0
@@ -172,7 +172,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 414581917}
   - component: {fileID: 414581916}
   - component: {fileID: 414581915}
+  - component: {fileID: 414581918}
   m_Layer: 0
   m_Name: FireStateChanger
   m_TagString: Untagged
@@ -282,7 +283,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -355,6 +356,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414581918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414581914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28409ba45a6c7146a82644667416551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateInfo: {fileID: 11400000, guid: 7c4a8adc2b0ce9a4ea0eb3958f72847d, type: 2}
+  playerSR: {fileID: 678233622}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +469,7 @@ GameObject:
   - component: {fileID: 678233619}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,7 +587,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -595,6 +610,7 @@ GameObject:
   - component: {fileID: 1140753747}
   - component: {fileID: 1140753746}
   - component: {fileID: 1140753745}
+  - component: {fileID: 1140753748}
   m_Layer: 0
   m_Name: NatureStateChanger
   m_TagString: Untagged
@@ -612,7 +628,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -685,6 +701,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1140753748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140753744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28409ba45a6c7146a82644667416551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateInfo: {fileID: 11400000, guid: 565391c533fb8c1428da28880ab01220, type: 2}
+  playerSR: {fileID: 678233622}
 --- !u!1 &1568886780
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +810,7 @@ GameObject:
   - component: {fileID: 1651517391}
   - component: {fileID: 1651517390}
   - component: {fileID: 1651517389}
+  - component: {fileID: 1651517392}
   m_Layer: 0
   m_Name: WaterStateChanger
   m_TagString: Untagged
@@ -797,7 +828,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -870,6 +901,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1651517392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651517388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28409ba45a6c7146a82644667416551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateInfo: {fileID: 11400000, guid: a94bb745b8f52f847a5960416203e58e, type: 2}
+  playerSR: {fileID: 678233622}
 --- !u!1 &1768360946
 GameObject:
   m_ObjectHideFlags: 0
