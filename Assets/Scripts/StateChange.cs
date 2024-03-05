@@ -7,9 +7,11 @@ public class StateChange : MonoBehaviour
     public StateInfo _stateInfo;
     public SpriteRenderer playerSR;
     private GameObject thisObject;
+    private GameObject playerObject;
 
     private void Start()
     {
+        playerObject = GameObject.FindWithTag("Player");
         thisObject = this.gameObject;
     }
     public void ColourSwap()
@@ -19,7 +21,12 @@ public class StateChange : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ColourSwap();
-        thisObject.SetActive(false);
+        if (collision.gameObject != playerObject)
+            return;
+        else
+        {
+            ColourSwap();
+            thisObject.SetActive(false);
+        }
     }
 }
