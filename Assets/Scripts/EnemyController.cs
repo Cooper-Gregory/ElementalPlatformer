@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject enemy;
     public GameObject pos1;
     public GameObject pos2;
     private Rigidbody2D rb;
@@ -71,12 +70,12 @@ public class EnemyController : MonoBehaviour
 
         if(hitObstacle.collider != null)
         {
-            Debug.LogWarning("Enemy detected");
+            //Debug.LogWarning("Enemy detected");
             Debug.DrawRay(transform.position, Vector2.right * hitObstacle.distance * new Vector2(characterDirection, 0f), Color.red);
         }
         else
         {
-            Debug.Log("No enemy in sight");
+            //Debug.Log("No enemy in sight");
             Debug.DrawRay(transform.position, Vector2.right * hitObstacle.distance * new Vector2(characterDirection, 0f), Color.green);
         }
     }

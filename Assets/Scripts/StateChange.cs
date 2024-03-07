@@ -21,12 +21,12 @@ public class StateChange : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject != playerObject)
-            return;
-        else
+        if (collision.gameObject == playerObject)
         {
             ColourSwap();
             thisObject.SetActive(false);
         }
+        else
+            return;
     }
 }

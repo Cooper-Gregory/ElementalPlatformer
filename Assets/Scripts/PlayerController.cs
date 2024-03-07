@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D playerRb;
-    private SpriteRenderer spriteRenderer;
+    private Quaternion playerQ;
 
     public float moveSpeed = 1f;
     public float jumpHight = 3f;
@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -34,10 +33,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(right))
         {
             playerRb.velocity = new Vector2(moveSpeed, playerRb.velocity.y);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (Input.GetKey(left))
         {
             playerRb.velocity = new Vector2(-moveSpeed, playerRb.velocity.y);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
