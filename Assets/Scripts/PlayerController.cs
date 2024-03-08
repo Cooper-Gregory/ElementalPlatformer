@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D playerRb;
-    private Quaternion playerQ;
 
     public float moveSpeed = 1f;
     public float jumpHight = 3f;
@@ -30,21 +29,24 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerMove()
     {
+        //Moves player right, swaps facing direction
         if (Input.GetKey(right))
         {
             playerRb.velocity = new Vector2(moveSpeed, playerRb.velocity.y);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (Input.GetKey(left))
+        //Moves player left, swaps facing direction
+        else if (Input.GetKey(left)) 
         {
             playerRb.velocity = new Vector2(-moveSpeed, playerRb.velocity.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else
+        else //Keeps momentum downwards
         {
             playerRb.velocity = new Vector2(0, playerRb.velocity.y);
         }
 
+        //Jump function
         if (Input.GetKey(up) && GroundCheck())
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpHight);

@@ -16,11 +16,16 @@ public class EnemyController : MonoBehaviour
     public float obstacleRayDistance;
     public float characterDirection;
 
+    private SpriteRenderer eyes;
+
+
+
     private void Start()
     {
+        eyes = GameObject.Find("Eyes").GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pos2.transform;
-        characterDirection = 0f;
+        characterDirection = 1f;
     }
     private void Update()
     {
@@ -35,10 +40,12 @@ public class EnemyController : MonoBehaviour
         {
             rb.velocity = new Vector2(speed, 0);
         }
-        else
+        else if(currentPoint == pos1.transform)
         {
             rb.velocity = new Vector2(-speed, 0);
         }
+
+
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pos2.transform)
         {
             Flip();
@@ -55,6 +62,7 @@ public class EnemyController : MonoBehaviour
         Vector2 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+        characterDirection *= -1;
     }
 
     private void OnDrawGizmos()
@@ -66,17 +74,19 @@ public class EnemyController : MonoBehaviour
 
     private void PlayerDetect()
     {
-        RaycastHit2D hitObstacle = Physics2D.Raycast(transform.position, Vector2.right * new Vector2(characterDirection, 0f), obstacleRayDistance, LayerMask.NameToLayer("Player"));
+        RaycastHit2D hitObstacle = Physics2D.Raycast(transform.position, Vector2.right * characterDirection, obstacleRayDistance, LayerMask.GetMask("Player"));
 
-        if(hitObstacle.collider != null)
+        if (hitObstacle.collider != null)
         {
-            //Debug.LogWarning("Enemy detected");
-            Debug.DrawRay(transform.position, Vector2.right * hitObstacle.distance * new Vector2(characterDirection, 0f), Color.red);
+            // Player detected
+            Debug.DrawRay(transform.position, hitObstacle.distance * Vector2.right, Color.red);
+            eyes.color = Color.red;
         }
         else
         {
-            //Debug.Log("No enemy in sight");
-            Debug.DrawRay(transform.position, Vector2.right * hitObstacle.distance * new Vector2(characterDirection, 0f), Color.green);
+            // No player in sight
+            Debug.DrawRay(transform.position, obstacleRayDistance * Vector2.right, Color.green);
+            eyes.color = Color.black;
         }
     }
 }
