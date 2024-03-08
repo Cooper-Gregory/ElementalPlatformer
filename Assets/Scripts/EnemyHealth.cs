@@ -19,4 +19,9 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void Norm1Damage()
+    {
+        enemyHealth -= 100;
+    }
 }

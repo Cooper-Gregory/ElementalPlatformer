@@ -8,6 +8,8 @@ public class PlayerAbilityController : MonoBehaviour
 
     [SerializeField] private KeyCode animKey;
 
+    private EnemyHealth _enemyHealth;
+
     void Update()
     {
         AnimSet();
@@ -24,6 +26,15 @@ public class PlayerAbilityController : MonoBehaviour
         {
             animator.SetBool("Norm1", false);
             Debug.Log("anim set false");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            _enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            _enemyHealth.Norm1Damage();
         }
     }
 }
