@@ -33,8 +33,11 @@ public class PlayerAbilityController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            _enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            _enemyHealth.Norm1Damage();
+            if (collision.otherCollider.CompareTag("Ability"))
+            {
+                _enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+                _enemyHealth.Norm1Damage();
+            }
         }
     }
 }
