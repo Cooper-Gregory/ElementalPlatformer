@@ -7,6 +7,10 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public StateInfo element;
+
+    private EnemyAbilityController _enemyAbilityController;
+
     public GameObject pos1;
     public GameObject pos2;
     private Rigidbody2D rb;
@@ -16,14 +20,21 @@ public class EnemyController : MonoBehaviour
     public float obstacleRayDistance;
     public float characterDirection;
 
+    private SpriteRenderer body;
     private SpriteRenderer eyes;
 
 
 
     private void Start()
     {
+        _enemyAbilityController = GetComponentInChildren<EnemyAbilityController>();
+        //Setting colour of body to element
+        body = GetComponent<SpriteRenderer>();
+        body.color = element.colour;
+        //Finding eyes for colour changes
         eyes = GameObject.Find("Eyes").GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        //Setting initial point for enemy to move to
         currentPoint = pos2.transform;
         characterDirection = 1f;
     }
@@ -81,12 +92,33 @@ public class EnemyController : MonoBehaviour
             // Player detected
             Debug.DrawRay(transform.position, hitObstacle.distance * Vector2.right, Color.red);
             eyes.color = Color.red;
+            PlayerDamage();
         }
         else
         {
             // No player in sight
             Debug.DrawRay(transform.position, obstacleRayDistance * Vector2.right, Color.green);
             eyes.color = Color.black;
+        }
+    }
+
+    private void PlayerDamage()
+    {
+        if(element.iD == 0)
+        {
+            _enemyAbilityController.FOne();
+        }
+        else if (element.iD == 1)
+        {
+
+        }
+        else if (element.iD == 2)
+        {
+
+        }
+        else if (element.iD == 3)
+        {
+
         }
     }
 }
